@@ -1,0 +1,41 @@
+---
+# SPDX-FileCopyrightText: 2026 The .github development team
+#
+# SPDX-License-Identifier: CC0-1.0
+name: Check formatting of the project
+on: [push, pull_request]
+jobs:
+  yamlfix:
+    name: Check YAML formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create requirements file for setup-python
+        run: touch ./requirements.txt
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install yamlfix
+        run: pip install yamlfix
+      - name: Check YAML formatting
+        run: yamlfix -v --check .
+  mdformat:
+    name: Check Markdown formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create requirements file for setup-python
+        run: touch ./requirements.txt
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install Mdformat
+        run: pip install mdformat
+      - name: Check Markdown formatting
+        run: mdformat --check .
