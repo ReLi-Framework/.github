@@ -21,21 +21,30 @@ them.
 
 ## :eyes: About the organization
 
-ReLi Framework helps red teams integrate, configure, and build their malware
-for fast iteration, without imposing a programming language or a fixed
-implementation beyond the minimum structure the framework needs.
+[ReLi Framework] builds open source infrastructure for managing
+configurable offensive tooling.
 
-If a repository follows the ReLi structure, the framework can generate its user
-interface and build the malware automatically, so red teams can focus on what
-matters: writing malware.
+Its main project, [ReLi], helps teams keep offensive tools,
+configuration, and construction logic inside the projects that own them, while
+providing a common framework around their lifecycle.
+
+This makes it easier to integrate new tools, maintain controlled variants, and
+support richer configuration strategies such as recompilation without forcing
+every project into the same builder model.
 
 ### :question: Why
 
-Red teams are not necessarily web developers, and custom configuration panels are
-slow to maintain, painful to update, and far from the way modern
-[Malware as a Service][maas] workflows actually iterate.
+[Traditional offensive builders][lockbit builder] work well for one tool, but
+they do not scale cleanly when every new project brings its own configuration
+and build logic.
 
-ReLi Framework makes it easier to test many malware configurations and trigger builds
-quickly, without rewriting the interface or launching every build manually.
+[ReLi] reduces that maintenance surface by moving those responsibilities
+back into the tool's project instead of spreading them across custom builders and
+platform code.
 
-[maas]: https://en.wikipedia.org/wiki/As_a_service
+It also fits better with standard development practices and enables richer
+configuration strategies such as recompilation.
+
+[lockbit builder]: https://securelist.com/lockbit-ransomware-builder-analysis/110370/
+[reli]: https://github.com/ReLi-Framework/ReLi/
+[reli framework]: https://github.com/ReLi-Framework/
